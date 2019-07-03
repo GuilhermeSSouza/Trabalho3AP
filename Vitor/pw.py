@@ -1,19 +1,18 @@
 from random import *
 from math import *
 #import TerceiraVersaoFinal as tvf
-import pickle 
+from TerceiraVersaoFinal import img
 
 K=4
 Pop=[]
 tamPop = 100
 
 
-#X = [[0,1], [1,2],[2,3],[4,1000], [5,1001],[6,4],[7,5], [8,6], [9,1002],[10, 1003], [11,1004], [12,1005]]
+X = [[0,1], [1,2],[2,3],[4,1000], [5,1001],[6,4],[7,5], [8,6], [9,1002],[10, 1003], [11,1004], [12,1005]]
 
 
-pickle_in = open('dados.pickle','rb')
+X, Limagens= img()
 
-X = pickle.load(pickle_in)
 
 #x = [1,2,3,1000,1001,4,5,6,1002,1003,1004, 1005]
 N = len(X)
@@ -21,18 +20,16 @@ N = len(X)
 #D = [[0.0 for i in range(N)] for j in range(N)]
 D_1 = [[0.0 for i in range(N)] for j in range(N)]
 
-pickle_inD = open('D.pickle', 'rb')
-D_1 = pickle.load(pickle_inD)
 
-#def distancia(a,b):
-#	return abs(a-b)
+def distancia(a,b):
+	return abs(a-b)
 
-# def dist_euclides(a,b):
-# 	soma = 0.0
-# 	for i in range(len(a)):
-# 		soma += (a[i]-b[i])**2
+def dist_euclides(a,b):
+	soma = 0.0
+	for i in range(len(a)):
+		soma += (a[i]-b[i])**2
 
-# 	return sqrt(soma)
+	return sqrt(soma)
 
 def fator_media(v):
 	p=0.0
@@ -55,9 +52,12 @@ def min_function_dis(b):
 	#print(eps)
 	return eps
 
-# for i in range (0,N):
-# 	for j in range (0,N):
-# 		D_1[i][j]=dist_euclides(X[i],X[j])
+for i in range (0,N):
+	for j in range (0,N):
+		D_1[i][j]=dist_euclides(X[i],X[j])
+
+#print(D_1)
+
 
 # for i in range (0,N):
 # 	for j in range (0,N):
