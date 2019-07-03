@@ -1,5 +1,5 @@
 import cv2
-
+import pickle 
 def calcula(localImagem):
     res = cv2.imread(localImagem)
     pv = [[1, 0, -1], [1, 0, -1], [1, 0, -1]]
@@ -41,18 +41,25 @@ def img():
     resultFinal = [] #[[[0]] * 6] * 6
     listImagens = []
     for i in range(1, 5):
-        for j in range(1,3): #aqui que define quantas imagens de cada pasta vão ser analisadas, nesse caso apenas 2, o professor pediu
+        for j in range(1,11): #aqui que define quantas imagens de cada pasta vão ser analisadas, nesse caso apenas 2, o professor pediu
             local = 'Images/Images' + str(i) + '/images(' + str(j) + ')'
             #print("Local: " + str(local))
             resultFinal.append(calcula(local))
-            listImagens.append('Images' + str(i) + '('+str(j)+ ')')
+            #listImagens.append('Images' + str(i) + '('+str(j)+ ')')
             #print('resultadoParcial: ' + str(resultFinal[i][j]))
             #print('<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>')
         #print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
         #print('checkpoint: ' + str(i))
         #print('vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv')
-    return resultFinal, listImagens   
+    return resultFinal   
 
 valores = img()
+
+
+pickle_out = open('dados.pickle', 'wb')
+pickle.dump(valores, pickle_out)
+pickle_out.close()
+
+
 #print(valores)
 

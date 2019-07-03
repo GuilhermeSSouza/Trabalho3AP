@@ -1,18 +1,19 @@
 from random import *
 from math import *
 #import TerceiraVersaoFinal as tvf
-from TerceiraVersaoFinal import img
+import pickle 
 
 K=4
 Pop=[]
-tamPop = 12
+tamPop = 100
 
 
-X = [[0,1], [1,2],[2,3],[4,1000], [5,1001],[6,4],[7,5], [8,6], [9,1002],[10, 1003], [11,1004], [12,1005]]
+#X = [[0,1], [1,2],[2,3],[4,1000], [5,1001],[6,4],[7,5], [8,6], [9,1002],[10, 1003], [11,1004], [12,1005]]
 
 
-X, Limagens= img()
+pickle_in = open('dados.pickle','rb')
 
+X = pickle.load(pickle_in)
 
 #x = [1,2,3,1000,1001,4,5,6,1002,1003,1004, 1005]
 N = len(X)
@@ -20,16 +21,18 @@ N = len(X)
 #D = [[0.0 for i in range(N)] for j in range(N)]
 D_1 = [[0.0 for i in range(N)] for j in range(N)]
 
+pickle_inD = open('D.pickle', 'rb')
+D_1 = pickle.load(pickle_inD)
 
-def distancia(a,b):
-	return abs(a-b)
+#def distancia(a,b):
+#	return abs(a-b)
 
-def dist_euclides(a,b):
-	soma = 0.0
-	for i in range(len(a)):
-		soma += (a[i]-b[i])**2
+# def dist_euclides(a,b):
+# 	soma = 0.0
+# 	for i in range(len(a)):
+# 		soma += (a[i]-b[i])**2
 
-	return sqrt(soma)
+# 	return sqrt(soma)
 
 def fator_media(v):
 	p=0.0
@@ -52,12 +55,9 @@ def min_function_dis(b):
 	#print(eps)
 	return eps
 
-for i in range (0,N):
-	for j in range (0,N):
-		D_1[i][j]=dist_euclides(X[i],X[j])
-
-#print(D_1)
-
+# for i in range (0,N):
+# 	for j in range (0,N):
+# 		D_1[i][j]=dist_euclides(X[i],X[j])
 
 # for i in range (0,N):
 # 	for j in range (0,N):
@@ -76,11 +76,9 @@ for j in range(0,tamPop):
 
 
 def roleta(p):
-	
-
 	pop_roleta = sorted(p, key= min_function_dis, reverse = True)
 	#print(pop_roleta)
-	peso = [1,1,1,1,2,2,3,3,4,5,6,7]
+	peso = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9]
 	somaPeso = 0
 	for i in range(len(peso)):
 		somaPeso +=peso[i]
@@ -126,7 +124,7 @@ while i < 5000 :
 			bestP.append(Pop[q])
 		
 
-	if(min_function_disMin < 10):
+	if(min_function_disMin < 36):
 		break
 
 	mP = Pop[bestSolve]
@@ -154,6 +152,7 @@ while i < 5000 :
 	Pop = Pop2
 	Pop[LowSolve] = mP
 	i += 1
+	#print(i)
 	
 
 	#print(Pop[bestSolve],min_function_dis(Pop[bestSolve]),bestSolve)
