@@ -1,5 +1,7 @@
 from random import *
 from math import *
+#import TerceiraVersaoFinal as tvf
+from TerceiraVersaoFinal import img
 
 K=2
 Pop=[]
@@ -8,10 +10,14 @@ tamPop = 12
 
 X = [[0,1], [1,2],[2,3],[4,1000], [5,1001],[6,4],[7,5], [8,6], [9,1002],[10, 1003], [11,1004], [12,1005]]
 
-x = [1,2,3,1000,1001,4,5,6,1002,1003,1004, 1005]
+
+X = img()
+
+
+#x = [1,2,3,1000,1001,4,5,6,1002,1003,1004, 1005]
 N = len(X)
 
-D = [[0.0 for i in range(N)] for j in range(N)]
+#D = [[0.0 for i in range(N)] for j in range(N)]
 D_1 = [[0.0 for i in range(N)] for j in range(N)]
 
 
@@ -48,9 +54,9 @@ for i in range (0,N):
 #print(D_1)
 
 
-for i in range (0,N):
-	for j in range (0,N):
-		D[i][j]=distancia(x[i],x[j])		
+# for i in range (0,N):
+# 	for j in range (0,N):
+# 		D[i][j]=distancia(x[i],x[j])		
 
 for j in range(0,tamPop):
 	M = [[0 for i in range(K)] for y in range(N)]
