@@ -1,0 +1,15 @@
+Importantes:
+	• Leia tudo que senão vai usar o arquivo errado e ficar puto, além de que tem informações importantes que podem te ajudar
+	• Metade desses arquivos são so para que você entenda oq tá sendo feito
+	• Fiz vários desses arquivos pois a cada vez que uma parte tava funcionando eu salvava uma cópia para poder pegar caso desse merda
+	• https://celke.com.br/artigo/tabela-de-cores-html-nome-hexadecimal-rgb
+		Nesse site há tons de verde, azul, cinza para que você possa ver
+	• Para que a variância e o site com os tons? Levando em consideração que tons de cinza/branco/preto possuem Vermelho,Verde e Azul quase iguais da para usar a variância para indentificar tons de cinza, por exemplo um cinza escuro é RGB(50,50,50) e um mais claro é RBG(200,200,200), levando em consideração isso, sempre que a diferença entre os tons de Vermelho, Verde e Azul for muito pequena significa que é um tom de cinza, podendo ser escuro pa kct ou claro.
+
+Vamos começar pelo arquivo "PrimeiraVersaoComVariancia.py", nele você pode ver a versão padrão com variância, a variância deu resultados bizarros mas não sei se são bizarros mesmos então mantive nessa versão. Lembrando que essa versão usa apenas um arquivo então não recomendo usar ela.
+
+Referente ao arquivo "SegundaVersao.py" nele você pode acompanhar o resultado de diversas imagens, podendo assim você definir no "for" da linha 53 quantas imagens em cada pasta vai usar, lembrando que range(1,3) vai ser executado so duas vezes("1", "2")
+
+Referente ao arquivo "TerceiraVersaoFinal.py", é a mema coisa do "SegundaVersao.py" só que diferente(kkkkk), não tem variância e os prints estão comentados.
+
+Por último e com certeza menos importante tempo o "Geral.py" que é a versão do trabalho que eu ia ter que entregar par não tirar 0, provavelmente não tem anda de útil nele mas tá ae caso seja de alguma utilidade
