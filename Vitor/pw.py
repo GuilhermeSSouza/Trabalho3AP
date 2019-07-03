@@ -76,7 +76,7 @@ for j in range(0,tamPop):
 
 
 def roleta(p):
-	pop_roleta = sorted(p, key= min_function_dis, reverse = True)
+	#pop_roleta = sorted(p, key= min_function_dis, reverse = True)
 	#print(pop_roleta)
 	peso = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9]
 	somaPeso = 0
@@ -91,12 +91,12 @@ def roleta(p):
 		posicaoEscolhida+=1
 		sorteio -=peso[posicaoEscolhida]
 
-	return pop_roleta[posicaoEscolhida]
+	return posicaoEscolhida
 
 
 def mutacao(a):
 	taxa_muta = randint(0,100)
-	if taxa_muta < 20 :
+	if taxa_muta < 25 :
 		b = randint(0,N-1) 
 		c = randint(0,K-1) 
 		for i in range(0,K):
@@ -133,9 +133,12 @@ while i < 5000 :
 	Pop2 = []
 	for w in range(int(len(Pop)/2)):
 		#Pai_1,Pai_2 = torneio(Pop)
+
+		#Pop_roleta = pop_roleta = sorted(Pop, key= min_function_dis, reverse = True) 
 		Pai_1 = roleta(Pop)
+
 		Pai_2 = roleta(Pop)
-		Filho_1,Filho_2 = crossover(Pai_1, Pai_2)
+		Filho_1,Filho_2 = crossover(Pop[Pai_1], Pop[Pai_2])
 		Filho_1 = mutacao(Filho_1)
 		Filho_2 = mutacao(Filho_2)
 		
@@ -152,7 +155,7 @@ while i < 5000 :
 	Pop = Pop2
 	Pop[LowSolve] = mP
 	i += 1
-	#print(i)
+	print(i)
 	
 
 	#print(Pop[bestSolve],min_function_dis(Pop[bestSolve]),bestSolve)
